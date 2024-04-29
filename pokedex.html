@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Liste des Pokémon</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="pokedex.html">Pokedex</a></li>
+            <li>
+                <form id="searchForm">
+                    <input type="text" id="pokemonSearch" placeholder="Rechercher un Pokémon">
+                </form>
+            </li>
+            <li>
+                <form id="typeFilterForm">
+                    <label for="typeFilter">Filtrer par type :</label>
+                    <div class="filter-wrapper">
+                        <select id="typeFilter" multiple>
+                            <option value="normal">Normal</option>
+                            <option value="plante">Plante</option>
+                            <option value="feu">Feu</option>
+                            <option value="eau">Eau</option>
+                            <option value="électrik">Électrik</option>
+                            <option value="glace">Glace</option>
+                            <option value="combat">Combat</option>
+                            <option value="poison">Poison</option>
+                            <option value="sol">Sol</option>
+                            <option value="vol">Vol</option>
+                            <option value="psy">Psy</option>
+                            <option value="insecte">Insecte</option>
+                            <option value="roche">Roche</option>
+                            <option value="spectre">Spectre</option>
+                            <option value="dragon">Dragon</option>
+                            <option value="ténèbres">Ténèbres</option>
+                            <option value="acier">Acier</option>
+                            <option value="fée">Fée</option>
+                        </select>
+                        <button type="button" onclick="resetTypeFilter()">Choix du Type</button>
+                    </div>
+                </form>
+            </li>
+            
+            <li><button onclick="getRandomPokemon()">Pokemon Aléatoire</button></li>
+        </ul>
+    </nav>
+    
+
+    <h1>Liste des Pokémon</h1>
+    <ul id="pokemonList"></ul>
+    <script src="script.js"></script>
+</body>
+</html>
