@@ -13,7 +13,7 @@ async function getRandomPokemon() {
 
     const randomIndex = Math.floor(Math.random() * pokemonList.length);
 
-    const randomPokemonId = pokemonList[randomIndex].pokedexId;
+    const randomPokemonId = pokemonList[randomIndex].pokedex_id;
 
     window.location.href = `pokemon.html?id=${randomPokemonId}`;
 }
@@ -47,7 +47,7 @@ async function displayPokemonList() {
     const pokemonList = await getPokemonList();
     const listContainer = document.getElementById('pokemonList');
 
-    for (const pokemon of pokemonList.filter(p => p.pokedexId !== 0)) {
+    for (const pokemon of pokemonList.filter(p => p.pokedex_id !== 0)) {
         const listItem = document.createElement('li');
         const spriteUrl = pokemon.sprites?.regular || 'placeholder-image-url';
 
@@ -57,15 +57,15 @@ async function displayPokemonList() {
             <img src="${spriteUrl}" alt="${pokemon.name}" class="sprite" />
             <div class="pokemon-info">
                 ${typesHTML}
-                <p class="pokedex-number">N°${pokemon.pokedexId}</p>
-                <a href="pokemon.html?id=${pokemon.pokedexId}" class="pokemon-name">${pokemon.name.fr}</a>
+                <p class="pokedex-number">N°${pokemon.pokedex_id}</p>
+                <a href="pokemon.html?id=${pokemon.pokedex_id}" class="pokemon-name">${pokemon.name.fr}</a>
             </div>
         `;
 
         const typeElements = listItem.querySelectorAll('.types');
         typeElements.forEach((typeElement, index) => typeElement.classList.add(`type-${pokemon.types[index].name.toLowerCase()}`));
 
-        listItem.addEventListener('click', () => window.location.href = `pokemon.html?id=${pokemon.pokedexId}`);
+        listItem.addEventListener('click', () => window.location.href = `pokemon.html?id=${pokemon.pokedex_id}`);
         listContainer.appendChild(listItem);
     }
 }
@@ -164,7 +164,7 @@ function updateDetailsView(pokemon) {
     const detailsContainer = document.getElementById('pokemonDetails');
 
     detailsContainer.innerHTML = `
-        <h1>N° ${pokemon.pokedexId} ${pokemon.name.fr}</h1>
+        <h1>N° ${pokemon.pokedex_id} ${pokemon.name.fr}</h1>
         <img src="${spriteUrl}" alt="${pokemon.name.fr}" class="sprite" />
         <p>${pokemon.category}</p>
         <table>
